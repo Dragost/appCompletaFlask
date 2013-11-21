@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+ 
+{% from 'cita/macro.html' import detalle %}
+ 
+{% block content %}
+{{ detalle(cita) }}
+
+<div class="center">
+	<p><a href="{{ url_for('crear_cita') }}"> Nueva cita</a>
+    <p><a href="{{ url_for('editar_cita', cita_id = cita.id) }}"> Editar cita</a>
+    <p><a href="{{ url_for('eliminar_cita', cita_id=cita.id) }}"> Eliminar cita</a>
+    <p><a href="{{ url_for('lista_citas') }}"> Volver a listado</a></p>
+<div>
+   
+{% endblock content %}

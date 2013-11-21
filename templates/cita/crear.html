@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h2>Nueva cita</h2>
+ 
+  {% for message in form.evento.errors %}
+    <div class="flash">{{message }}</div>
+  {% endfor %}
+ 
+  {% for message in form.inicio.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+ 
+  {% for message in form.fin.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+ 
+ 
+  <form action="{{ url_for('crear_cita') }}" method=post>
+    {{ form.hidden_tag() }}
+ 
+    {{ form.evento.label }}
+    {{ form.evento }}
+ 
+    {{ form.inicio.label }}
+    {{ form.inicio }}
+ 
+    {{ form.fin.label }}
+    {{ form.fin }}
+ 
+    {{ form.todoeldia.label }}
+    {{ form.todoeldia}}
+ 
+    {{ form.lugar.label }}
+    {{ form.lugar}}
+ 
+    {{ form.descripcion.label }}
+    {{ form.descripcion}}
+ 
+    {{ form.submit }}
+  </form>
+ 
+{% endblock %}

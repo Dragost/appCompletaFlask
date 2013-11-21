@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Usuarios<h2>
+    <table>
+    {% if sesion %}
+    
+    <tr><th>Nombre</th><th>Apellidos</th><th>Email</th></tr>
+    {% for usuario in usuarios %}
+    <tr><td>{{usuario.firstname}} </td>
+    <td> {{usuario.lastname}}</td>
+    <td> {{usuario.email}}</td></tr>
+    {% endfor %}
+    </table>
+    
+    {% else %}
+    <tr><th>Nombre</th><th>Apellidos</th></tr>
+    {% for usuario in usuarios %}
+    <tr><td>{{usuario.firstname}} </td>
+    <td> {{usuario.lastname}}</td></tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+  </div>
+{% endblock %}

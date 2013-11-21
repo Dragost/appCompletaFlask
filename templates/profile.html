@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Perfil de usuario<h2>
+    <h3>Esta es la página de perfil de {{ user.firstname }}<h3>
+    
+    <h4>Nombre: {{ user.firstname }} </h4>
+    <h4>Apellido: {{ user.lastname }}</h4>
+    <h4>Email: {{ session['email'] }} </h4>
+    <div class="center">
+    <p><a href="{{ url_for('modificar') }}"> Modificar</a>
+    <p><a href="{{ url_for('baja') }}"> Baja</a>
+    <p><a href="{{ url_for('lista_usuarios') }}"> Listado de usuarios</a></p>
+    <div>
+  </div>
+{% endblock %}

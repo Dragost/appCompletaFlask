@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>aplicación de contactos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">Aplicación de contacto</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">Acerca de</a></li>
+          <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+          {% if 'email' in session %}
+          <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+          <li><a href="{{ url_for('lista_citas') }}">Citas</a></li>
+          <li><a href="{{ url_for('signout') }}">Logout</a></li>
+          {% else %}
+          <li><a href="{{ url_for('signup') }}">Alta</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

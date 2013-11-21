@@ -1,0 +1,15 @@
+{% macro detalle(cita) %}
+  <div class="detalle-cita">
+     <h3><a href="{{ url_for('detalle_cita', cita_id=cita.id) }}" >{{ cita.evento or '(sin titulo)' }} </a></h3>
+ 
+    {% if cita.lugar %}<p><i class="icon-home"></i> {{ cita.lugar }}</p>{% endif %}
+    {% if cita.todoeldia %}
+      <p><i class="icon-calendar"></i> {{ cita.inicio }}</p>
+    {% else %}
+      <p><i class="icon-calendar"></i> {{ cita.inicio }}. Duración: {{ cita.duracion() }} minutos</p>
+    {% endif %}
+      </div>
+      
+	
+<div>
+{% endmacro %}
